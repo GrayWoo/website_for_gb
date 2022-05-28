@@ -6,12 +6,10 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "./components/HelloWorld.vue";
 import Main from "./components/Main.vue";
 
 @Options({
   components: {
-    HelloWorld,
     Main,
   },
 })
@@ -25,6 +23,6 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background: linear-gradient(to right, #10514e 0, #06e909 140%) no-repeat;
 }
 </style>

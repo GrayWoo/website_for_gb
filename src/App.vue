@@ -1,7 +1,8 @@
 <template>
-  <!-- <router-link to="/">Home</router-link> |
-  <router-link to="/about">About</router-link> -->
-  <Main></Main>
+  <!-- <router-link to="/about">/</router-link>
+  | <router-link to="/">About</router-link> -->
+
+  <router-view></router-view>
 </template>
 
 <script lang="ts">

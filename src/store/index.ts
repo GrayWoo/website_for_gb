@@ -7,7 +7,7 @@ export default createStore({
 
   getters: {},
   mutations: {
-    setProducts(state, { products }) {
+    setProducts(state, products: Product[]) {
       state.products = products;
     },
     setError(state) {
@@ -20,13 +20,13 @@ export default createStore({
   actions: {
     getProducts({ commit }) {
       commit("clearError");
-      apiService
+      return apiService
         .get<Product[]>("products")
         .then((res) => {
           commit("setProducts", res);
+          return res;
         })
         .catch(() => commit("setError"));
-      this.state.products;
     },
   },
   modules: {},

@@ -5,17 +5,13 @@
     </div>
     <div class="col">Column</div>
     <div class="col">Column</div>
-    <!-- <div>{{ store.products }}</div> -->
-    <!-- <div v-if="products">....</div>
-    <div v-if="products">CCCC</div> -->
-    <!-- <div>{{ store.state.products }}</div> -->
+
+    <div v-if="products.length">{{ products }}</div>
   </div>
 </template>
 
 <script lang="ts">
 import ProductCard from "../Product/ProductCard.vue";
-import { onMounted } from "vue";
-import store from "@/store";
 import { Product } from "@/types/product.type";
 import { defineComponent } from "vue";
 
@@ -26,32 +22,20 @@ export default defineComponent({
     ProductCard: ProductCard,
   },
 
-  // data() {
-  //   return {
-  //     products: <any[]>[],
-  //   };
-  // },
   methods: {
     setProducts() {
-      store.dispatch("getProducts");
-      console.log(store.state.products);
-      // if (store.state.products) this.products = store.state.products;
+      this.$store.dispatch("getProducts");
     },
   },
 
   computed: {
-    // g(){
-    //   this.$store
-    // }
+    products: function (): Product[] {
+      return this.$store.state.products;
+    },
   },
-  // computed: {
-  //   currentUser() {
-  //     return this.$store.state.auth.user;
-  //   }
-  // },
 
   mounted() {
-    this.setProducts();
+    this.$store.dispatch("getProducts");
   },
 });
 </script>

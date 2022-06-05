@@ -1,12 +1,14 @@
-class ApiServices {
-  private readonly basseURL = window.location.origin;
+import { Response } from "@/types/respose.type";
 
-  public async get<T = any>(subpath: string): Promise<T | Error> {
-    const res = await fetch(this.basseURL + subpath);
-    return res.status >= 200 && res.status < 300
-      ? await res.json()
-      : new Error(res.statusText);
+class ApiServices {
+  private readonly basseURL = "http://localhost:5555/api/";
+  //   private readonly basseURL = window.location.origin + "/api/";
+
+  public async get<T = any>(subpath: string): Promise<T> {
+    const res = await fetch(this.basseURL + subpath, {});
+
+    return await res.json();
   }
 }
 
-export default new ApiServices();
+export const apiService = new ApiServices();

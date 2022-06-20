@@ -1,22 +1,58 @@
 [
   {
-    "id_product": 124,
+    "id_product": 1234,
+    "img": "https://avatars.mds.yandex.net/get-mpic/4409630/img_id3052544320015112222.jpeg/orig",
     "product_name": "Keyboard",
+    "description": "Description",
     "price": 1600
   },
   {
     "id_product": 457,
+    "img": "https://avatars.mds.yandex.net/i?id=931634a1ce9e8d004194607a2be11a23-5584147-images-thumbs&n=13&exp=1",
+    "description": "Loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Description",
     "product_name": "Gamepad",
     "price": 3000
   },
   {
     "id_product": 123,
-    "product_name": "Ноутбук",
+    "img": "https://computer-image.ru/upload/iblock/4bb/4bbfeb6c8c027a4dc24763dd53ddda71.jpg",
+    "description": "Description",
+    "product_name": "Notebook",
     "price": 45600
   },
   {
     "id_product": 456,
-    "product_name": "Мышка",
+    "img": "https://tech-bit.ru/upload/iblock/46d/b20d33fdb5b002d55454dd944d931d29.jpg",
+    "description": "Description",
+    "product_name": "Mouse",
+    "price": 1000
+  },
+  {
+    "id_product": 124,
+    "img": "https://img.05.ru/resize/sSXPLe4Rzi7KNA3yHZrFJStJCHBAqWsqRkAJzMgjvyU/rs:fit:1920:905:0:0/q:100/bG9jYWw6Ly8vdXBsb2FkL2libG9jay8wMDAwMDAwNDU5Mi8zLmpwZw",
+    "product_name": "Keyboard",
+    "description": "Description",
+    "price": 1600
+  },
+  {
+    "id_product": 4537,
+    "img": "https://lotok.kz/images/detailed/2/8155_%D0%B3%D0%B5%D0%B9%D0%BC%D0%BF%D0%B0%D0%B4.jpg",
+    "description": "Loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Description",
+    "product_name": "Gamepad",
+    "price": 3000
+  },
+  {
+    "id_product": 12332,
+    "img": "https://tehnoteca.ru/img/1336/1335004/lenovo_thinkpad_e480_e480_20kn001vrt_3.jpg",
+    "description": "Description",
+    "product_name": "Notebook",
+    "price": 45600
+  },
+  {
+    "id_product": 32124,
+    "img": "https://static.beloris.ru/content/catalog_image/101846/tmp/1280_1280513eeb397309e_xl.jpg",
+    "description": "Description",
+    "product_name": "Mouse",
     "price": 1000
   }
 ]

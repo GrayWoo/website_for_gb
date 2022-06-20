@@ -7,24 +7,19 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img
-          src="https://w-dog.ru/wallpapers/9/13/470805443452221/pejzazh-gory-ozero-voda-gory-water-priroda-zimnie-sneg-derevya-kanada-ozera.jpg"
+          src="https://cdn-front.kwork.ru/pics/t3/97/320245-1.jpg"
           class="d-block w-100"
-          alt="..."
+          alt="first"
         />
       </div>
-      <div class="carousel-item">
-        <img
-          src="https://w-dog.ru/wallpapers/9/13/470805443452221/pejzazh-gory-ozero-voda-gory-water-priroda-zimnie-sneg-derevya-kanada-ozera.jpg"
-          class="d-block w-100"
-          alt="..."
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://w-dog.ru/wallpapers/9/13/470805443452221/pejzazh-gory-ozero-voda-gory-water-priroda-zimnie-sneg-derevya-kanada-ozera.jpg"
-          class="d-block w-100"
-          alt="..."
-        />
+      <div
+        v-for="product in products"
+        :key="product.id_product"
+        class="carousel-item"
+      >
+        <router-link :to="`/product/${product?.id_product}`">
+          <img :src="product.img" class="d-block w-100" alt="prev_img"
+        /></router-link>
       </div>
     </div>
     <button
@@ -49,9 +44,22 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Product } from "@/types/product.type";
+import { defineComponent } from "vue";
 
-export default class Preview extends Vue {}
+export default defineComponent({
+  name: "CatalogItems",
+
+  computed: {
+    products: function (): Product[] {
+      return this.$store.state.products;
+    },
+  },
+});
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.d-block {
+  height: 700px;
+}
+</style>

@@ -133,5 +133,9 @@ footer {
   text-align: var(--bs-body-text-align);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  .text-muted {
+    --bs-text-opacity: 1;
+    color: #ffffff !important;
+  }
 }
 </style>

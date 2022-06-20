@@ -2,71 +2,72 @@
   <header>
     <nav class="navbar navbar-expand-lg container">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
+        <div class="d-flex align-items-center justify-content-center">
+          <div>
+            <router-link class="logo" to="/">Navbar-LOGO</router-link>
+          </div>
+
           <form class="d-flex" role="search">
             <input
+              v-model="text"
+              @input="filter(text)"
               class="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
           </form>
         </div>
+        <CartMin />
       </div>
     </nav>
   </header>
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Product } from "@/types/product.type";
+import { defineComponent } from "vue";
+import CartMinVue from "../Basket/CartMin.vue";
 
-export default class Main extends Vue {}
+export default defineComponent({
+  name: "HeaderVue",
+  components: {
+    CartMin: CartMinVue,
+  },
+  data() {
+    return { text: "" };
+  },
+
+  computed: {
+    products: function (): Product[] {
+      return this.$store.state.products;
+    },
+  },
+
+  methods: {
+    filter(value: string) {
+      let regexp = new RegExp(value, "i");
+      const filtered = this.products.filter((el) =>
+        regexp.test(el.product_name)
+      );
+
+      this.$store.commit("setFilteredProducts", filtered);
+    },
+  },
+});
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.logo {
+  color: white !important;
+  font-weight: bold;
+  margin-right: 10px;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  transition: all ease-in-out 0.2s;
+  &:hover {
+    color: rgb(163, 148, 148) !important;
+    text-decoration: underline !important;
+  }
+}
+</style>

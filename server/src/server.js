@@ -7,9 +7,8 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use("/", express.static(path.resolve(__dirname, "../public")));
-app.use("/api/cart", cartRouter);
 
-const allowedOrigins = ["http://localhost:8080"];
+const allowedOrigins = ["http://localhost:8080", "http://localhost:5555"];
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -23,6 +22,7 @@ app.use(
     },
   })
 );
+app.use("/api/cart", cartRouter);
 
 /**
  * Используем path дабы избежать проблем с относительными путями до файлов. Делаем их абсолютными.

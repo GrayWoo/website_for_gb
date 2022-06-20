@@ -1,24 +1,28 @@
 {
-    "amount": 46600,
-    "countGoods": 2,
-    "contents": [
-        {
-            "quantity": 2,
-            "id_product": 123,
-            "product_name": "Ноутбук",
-            "price": 45600
-        },
-        {
-            "quantity": 1,
-            "id_product": 457,
-            "product_name": "Gamepad",
-            "price": 3000
-        },
-        {
-            "quantity": 1,
-            "id_product": 124,
-            "product_name": "Keyboard",
-            "price": 1600
-        }
-    ]
+  "contents": [
+    {
+      "quantity": 2,
+      "img": "https://computer-image.ru/upload/iblock/4bb/4bbfeb6c8c027a4dc24763dd53ddda71.jpg",
+      "id_product": 123,
+      "product_name": "Notebook",
+      "description": "Description",
+      "price": 45600
+    },
+    {
+      "quantity": 1,
+      "img": "https://avatars.mds.yandex.net/i?id=931634a1ce9e8d004194607a2be11a23-5584147-images-thumbs&n=13&exp=1",
+      "id_product": 457,
+      "product_name": "Gamepad",
+      "description": "Description",
+      "price": 3000
+    },
+    {
+      "quantity": 1,
+      "img": "https://img.05.ru/resize/sSXPLe4Rzi7KNA3yHZrFJStJCHBAqWsqRkAJzMgjvyU/rs:fit:1920:905:0:0/q:100/bG9jYWw6Ly8vdXBsb2FkL2libG9jay8wMDAwMDAwNDU5Mi8zLmpwZw",
+      "id_product": 124,
+      "product_name": "Keyboard",
+      "description": "Description",
+      "price": 1600
+    }
+  ]
 }

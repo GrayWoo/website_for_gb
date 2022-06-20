@@ -1,20 +1,19 @@
 <template>
-  <!-- <router-link to="/about">/</router-link>
-  | <router-link to="/">About</router-link> -->
-
   <router-view></router-view>
 </template>
 
 <script lang="ts">
+import { defineComponent, onMounted } from "vue";
 import { Options, Vue } from "vue-class-component";
 import Main from "./components/Main.vue";
 
-@Options({
-  components: {
-    Main,
+export default defineComponent({
+  name: "webMarket",
+  mounted() {
+    this.$store.dispatch("getProducts");
+    this.$store.dispatch("getCart");
   },
-})
-export default class App extends Vue {}
+});
 </script>
 
 <style lang="scss">
@@ -25,5 +24,13 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
   background: linear-gradient(to right, #10514e 0, #06e909 140%) no-repeat;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #31604c !important;
+  border-color: #31604c !important;
+  &:focus {
+    box-shadow: 0 0 0 0.25rem #31604c94 !important;
+  }
 }
 </style>

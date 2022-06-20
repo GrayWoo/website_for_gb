@@ -10,21 +10,21 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
 import Header from "./Header/Header.vue";
 import Preview from "./Preview/Preview.vue";
 import Catalog from "./Catalog/Catalog.vue";
 import Footer from "./Footer/Footer.vue";
+import { defineComponent } from "vue";
 
-@Options({
+export default defineComponent({
+  name: "MainVue",
   components: {
     Header,
     Preview,
     Catalog,
     Footer,
   },
-})
-export default class Main extends Vue {}
+});
 </script>
 
 <style scoped lang="scss">

@@ -1,27 +1,45 @@
 <template>
-  <div class="row catalog">
-    <div class="col">
-      <ProductCard />
+  <div v-if="products.length">
+    <div class="myrow catalog">
+      <div v-for="product in products" :key="product.id_product">
+        <ProductCard :product="product" />
+      </div>
     </div>
-    <div class="col">Column</div>
-    <div class="col">Column</div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
 import ProductCard from "../Product/ProductCard.vue";
+import { Product } from "@/types/product.type";
+import { defineComponent } from "vue";
 
-@Options({
+export default defineComponent({
+  name: "CatalogItems",
+
   components: {
-    ProductCard,
+    ProductCard: ProductCard,
   },
-})
-export default class Catalog extends Vue {}
+
+  computed: {
+    products: function (): Product[] {
+      return this.$store.state.filteredProducts;
+    },
+  },
+});
 </script>
 
 <style scoped lang="scss">
-.catalog {
-  padding: 40px 0;
+.myrow {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+  justify-content: space-between;
+  align-items: center;
+}
+.myrow > * {
+  padding-top: 40px;
+  flex-shrink: 0;
 }
 </style>
